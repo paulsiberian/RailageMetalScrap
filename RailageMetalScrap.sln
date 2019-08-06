@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailageMetalScrap", "RailageMetalScrap\RailageMetalScrap.csproj", "{A65E9D76-0E84-48EA-A389-AE6E98BBB4DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{84D52C11-BC05-4335-A133-A0E525B244A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A65E9D76-0E84-48EA-A389-AE6E98BBB4DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65E9D76-0E84-48EA-A389-AE6E98BBB4DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65E9D76-0E84-48EA-A389-AE6E98BBB4DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65E9D76-0E84-48EA-A389-AE6E98BBB4DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D52C11-BC05-4335-A133-A0E525B244A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D52C11-BC05-4335-A133-A0E525B244A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
