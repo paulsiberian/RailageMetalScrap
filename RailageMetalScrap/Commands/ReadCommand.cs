@@ -32,7 +32,6 @@ namespace RailageMetalScrap.Commands
             {
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
                 var options = optionsBuilder
-//                .UseSqlServer(config.GetConnectionString("SqlServer"))
                     .UseSqlite(config.GetConnectionString("DefaultConnection"))
                     .Options;
                 
