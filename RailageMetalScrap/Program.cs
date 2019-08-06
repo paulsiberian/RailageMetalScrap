@@ -1,8 +1,5 @@
 ﻿using CommandLine;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using RailageMetalScrap.Commands;
-using RailageMetalScrap.Database;
 using RailageMetalScrap.Tools;
 
 namespace RailageMetalScrap
