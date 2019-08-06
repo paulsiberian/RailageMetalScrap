@@ -1,5 +1,11 @@
 # RailageMetalScrap
 
+## Клонирование
+```console
+git clone https://github.com/paulsiberian/RailageMetalScrap.git
+cd RailageMetalScrap
+```
+
 ## Запуск
 ```console
 cd RailageMetalScrap
