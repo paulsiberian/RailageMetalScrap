@@ -1,8 +1,12 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using RailageMetalScrap.Database.Models;
 
 namespace RailageMetalScrap.Database
 {
+    /// <summary>
+    /// Класс экземпляра контекста базы данных
+    /// </summary>
     public class AppDbContext : DbContext
     {
         public DbSet<Country> Countries { get; set; }
@@ -18,6 +22,11 @@ namespace RailageMetalScrap.Database
             Database.EnsureCreated();
         }
 
+        /// <summary>
+        /// Метод возвращает экземпляр класса <see cref="Country"/> или, если в таблице нет такой записи, создаёт её
+        /// </summary>
+        /// <param name="name">Название страны</param>
+        /// <returns>Экземпляр класса <see cref="Country"/></returns>
         public Country GetCountry(string name)
         {
             var country = Countries.FirstOrDefault(c => c.Name.Equals(name));
@@ -31,7 +40,13 @@ namespace RailageMetalScrap.Database
 
             return country;
         }
-
+        
+        /// <summary>
+        /// Метод возвращает экземпляр класса <see cref="RailRoad"/> или, если в таблице нет такой записи, создаёт её
+        /// </summary>
+        /// <param name="name">Название железной дороги</param>
+        /// <param name="countryName">Название страны</param>
+        /// <returns>Экземпляр класса <see cref="RailRoad"/></returns>
         public RailRoad GetRailRoad(string name, string countryName)
         {
             var railRoad = RailRoads.FirstOrDefault(r => r.Name.Equals(name) 
@@ -45,7 +60,13 @@ namespace RailageMetalScrap.Database
 
             return railRoad;
         }
-
+        
+        /// <summary>
+        /// Метод возвращает экземпляр класса <see cref="State"/> или, если в таблице нет такой записи, создаёт её
+        /// </summary>
+        /// <param name="name">Название региона</param>
+        /// <param name="countryName">Название страны</param>
+        /// <returns>Экземпляр класса <see cref="State"/></returns>
         public State GetState(string name, string countryName)
         {
             var state = States.FirstOrDefault(s => s.Name.Equals(name) 
@@ -60,6 +81,14 @@ namespace RailageMetalScrap.Database
             return state;
         }
 
+        /// <summary>
+        /// Метод возвращает экземпляр класса <see cref="Station"/> или, если в таблице нет такой записи, создаёт её
+        /// </summary>
+        /// <param name="name">Название станции</param>
+        /// <param name="railRoadName">Название железной дороги</param>
+        /// <param name="stateName">Название региона</param>
+        /// <param name="countryName">Название страны</param>
+        /// <returns>Экземпляр класса <see cref="Station"/></returns>
         public Station GetStation(string name, string railRoadName, string stateName, string countryName)
         {
             var station = Stations.FirstOrDefault(s => s.Name.Equals(name)
@@ -80,6 +109,11 @@ namespace RailageMetalScrap.Database
             return station;
         }
 
+        /// <summary>
+        /// Метод возвращает экземпляр класса <see cref="Company"/> или, если в таблице нет такой записи, создаёт её
+        /// </summary>
+        /// <param name="name">Название компании</param>
+        /// <returns>Экземпляр класса <see cref="Company"/></returns>
         public Company GetCompany(string name)
         {
             var company = Companies.FirstOrDefault(c => c.Name.Equals(name));
@@ -94,6 +128,11 @@ namespace RailageMetalScrap.Database
             return company;
         }
 
+        /// <summary>
+        /// Метод возвращает экземпляр класса <see cref="CargoType"/> или, если в таблице нет такой записи, создаёт её
+        /// </summary>
+        /// <param name="type">Тип груза</param>
+        /// <returns>Экземпляр класса <see cref="CargoType"/></returns>
         public CargoType GetCargoType(string type)
         {
             var cargoType = CargoTypes.FirstOrDefault(t => t.Type.Equals(type));

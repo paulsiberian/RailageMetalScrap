@@ -2,18 +2,38 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace RailageMetalScrap.Database
+namespace RailageMetalScrap.Database.Models
 {
+    /// <summary>
+    /// Класс объекта железная дорога
+    /// </summary>
     public class RailRoad
     {
+        /// <summary>
+        /// ИД железной дороги
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        
+        /// <summary>
+        /// Название железной дороги
+        /// </summary>
         [Column(TypeName = "varchar(128)")]
         public string Name { get; set; }
         
+        /// <summary>
+        /// ИД страны
+        /// </summary>
         public int CountryId { get; set; }
+        
+        /// <summary>
+        /// Страна
+        /// </summary>
         public Country Country { get; set; }
         
+        /// <summary>
+        /// Станции расположенные на данной железной дороге
+        /// </summary>
         public HashSet<Station> Stations { get; set; }
 
         public override bool Equals(object obj)

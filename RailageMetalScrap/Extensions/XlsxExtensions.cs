@@ -6,8 +6,16 @@ using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace RailageMetalScrap.Extensions
 {
+    /// <summary>
+    /// Класс является расширением для класса <c>DocumentFormat.OpenXml.Spreadsheet.Cell</c>
+    /// </summary>
     public static class XlsxExtensions
     {
+        /// <summary>
+        /// Метод возвращает значение ячейки в формате даты
+        /// </summary>
+        /// <param name="cell">Ячейка</param>
+        /// <returns>Экземпляр даты</returns>
         public static DateTime GetDateTimeValue(this Cell cell)
         {
             var value = DateTime.Today;
@@ -21,6 +29,12 @@ namespace RailageMetalScrap.Extensions
             return value;
         }
 
+        /// <summary>
+        /// Метод возвращает целочисленное значение ячейки в общем формате
+        /// </summary>
+        /// <param name="cell">Ячейка</param>
+        /// <param name="stringTable">Таблица строковых значений листа</param>
+        /// <returns>Целое число</returns>
         public static int GetIntValue(this Cell cell, SharedStringTable stringTable)
         {
             var value = 0;
@@ -34,6 +48,11 @@ namespace RailageMetalScrap.Extensions
             return value;
         }
 
+        /// <summary>
+        /// Метод возвращает значение ячейки в числовом формате
+        /// </summary>
+        /// <param name="cell">Ячейка</param>
+        /// <returns>Число с плавующей точкой</returns>
         public static double GetDoubleValue(this Cell cell)
         {
             var value = 0.0;
@@ -47,6 +66,12 @@ namespace RailageMetalScrap.Extensions
             return value;
         }
 
+        /// <summary>
+        /// Метод возвращает значение ячейки в текстовом формате
+        /// </summary>
+        /// <param name="cell">Ячейка</param>
+        /// <param name="stringTable">Таблица строковых значений листа</param>
+        /// <returns>Текст ячейки</returns>
         public static string GetStringValue(this Cell cell, SharedStringTable stringTable)
         {
             var value = "";
@@ -68,6 +93,12 @@ namespace RailageMetalScrap.Extensions
             return value;
         }
 
+        /// <summary>
+        /// Метод возвращает ячейку из строки по букве
+        /// </summary>
+        /// <param name="row">Строка</param>
+        /// <param name="s">Буква</param>
+        /// <returns>Ячейка</returns>
         public static Cell GetCellByLetter(this Row row, string s)
         {
             return row.Descendants<Cell>().FirstOrDefault(c => Regex.Replace(c.CellReference, @"[\d-]", String.Empty).Equals(s));

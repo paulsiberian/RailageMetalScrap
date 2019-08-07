@@ -6,8 +6,13 @@ using NPOI.XSSF.UserModel;
 
 namespace RailageMetalScrap.Spreadsheet
 {
+    /// <summary>
+    /// Класс реализует интерфейс <see cref="IRegister"/> для работы с файлами реестров с расширением xlsx с использованием <see cref="NPOI"/>
+    /// </summary>
     public class NpoiRegister : IRegister
     {
+        private readonly IConfigurationRoot _config;
+        
         private void SingleRead(string fileName)
         {
             var attr = File.GetAttributes(fileName);
@@ -87,7 +92,7 @@ namespace RailageMetalScrap.Spreadsheet
         public NpoiRegister(IConfigurationRoot config)
         {
             Entries = new HashSet<Entry>();
-            Config = config;
+            _config = config;
         }
 
         public void Read(IEnumerable<string> files, bool display)
@@ -106,6 +111,5 @@ namespace RailageMetalScrap.Spreadsheet
         }
 
         public HashSet<Entry> Entries { get; }
-        public IConfigurationRoot Config { get; }
     }
 }

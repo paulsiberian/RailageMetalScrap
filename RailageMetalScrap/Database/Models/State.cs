@@ -2,18 +2,38 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace RailageMetalScrap.Database
+namespace RailageMetalScrap.Database.Models
 {
+    /// <summary>
+    /// Класс объекта регион
+    /// </summary>
     public class State
     {
+        /// <summary>
+        /// ИД региона
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        
+        /// <summary>
+        /// Название региона
+        /// </summary>
         [Column(TypeName = "varchar(128)")]
         public string Name { get; set; }
         
+        /// <summary>
+        /// ИД страны
+        /// </summary>
         public int CountryId { get; set; }
+        
+        /// <summary>
+        /// Страна
+        /// </summary>
         public Country Country { get; set; }
         
+        /// <summary>
+        /// Станции расположенные в данном регионе
+        /// </summary>
         public HashSet<Station> Stations { get; set; }
 
         public override bool Equals(object obj)

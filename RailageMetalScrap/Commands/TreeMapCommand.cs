@@ -3,6 +3,9 @@ using CommandLine;
 
 namespace RailageMetalScrap.Commands
 {
+    /// <summary>
+    /// Класс представляет собой экземпляр команды приложения, создающей иерархическую диаграмму по выбранным данным из базы данных
+    /// </summary>
     [Verb("treemap")]
     public class TreeMap
     {

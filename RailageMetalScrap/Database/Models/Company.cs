@@ -1,13 +1,22 @@
-using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace RailageMetalScrap.Database
+namespace RailageMetalScrap.Database.Models
 {
+    /// <summary>
+    /// Класс объекта компания
+    /// </summary>
     public class Company
     {
+        /// <summary>
+        /// ИД компании
+        /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        
+        /// <summary>
+        /// Название компании
+        /// </summary>
         [Column(TypeName = "varchar(128)")]
         public string Name { get; set; }
 
